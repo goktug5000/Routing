@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
 
+  products:any[]=[
+    {name: "elma"},
+    {name: "armut"},
+    {name: "kel göktuğ :("}
+  ];
 }
