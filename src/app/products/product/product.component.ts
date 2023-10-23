@@ -34,13 +34,33 @@ export class ProductComponent implements OnInit{
     );
 
   }
+
+
   goNextProduct(nextt?:boolean){
-    let id=Number(this.route.snapshot.paramMap.get('id'));
+    let id:number=0;
+    let idModif:number=1;
+
     if(nextt==false){
-      this.router.navigate(['/products/'+String(id-1)]);
-      return
+      idModif=-1;
     }
-    this.router.navigate(['/products/'+String(id+1)]);
+    
+    this.route.paramMap
+    .subscribe(dnm=>//döngüden çıkana kadar 1590157109 kez içindekiler çalışıyor
+      {
+      id = Number(dnm.get('id'));
+      let tryProduct=products.find(ii=>ii.id===Number(id+idModif));
+      console.log("dnm");
+      this.goNextProduct2(tryProduct);
+      });
+  }
+
+  goNextProduct2(tryProduct:any){
+    if(tryProduct!=null){
+      console.log("eleman bulundu "+tryProduct.id);
+      this.route.paramMap.subscribe(dnm=>{this.router.navigate(['/products/'+String(tryProduct.id)]);});
+      return;
+    }
+    console.log("eleman yok ");
   }
 
 
