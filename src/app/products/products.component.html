@@ -6,3 +6,16 @@
         <a [routerLink]="['/products',item.id]">detay</a>
     </ul>
 </div>
+
+
+<div>
+
+
+    <a class="btn btn-primary" routerLink="/products" [queryParams]="{order: 'bestselling'}">
+        çok satanlar
+    </a>
+    <a class="btn btn-primary" routerLink="/products" [queryParams]="{order: 'newest'}">
+        yeniler
+    </a>
+
+</div>
