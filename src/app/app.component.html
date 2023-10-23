@@ -3,13 +3,13 @@
     <div class="col-md-12">
       <ul class="nav nav-tabs my-4">
         <li class="nav-item">
-          <a href="#" class="nav-link active">home</a>
+          <a routerLink="" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact:true}">home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">products</a>
+          <a routerLink="products" class="nav-link" routerLinkActive="active">products</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">users</a>
+          <a routerLink="users" class="nav-link" routerLinkActive="active">users</a>
         </li>
       </ul>
     </div>
@@ -23,9 +23,8 @@
     </div>
 
     <div class="col-md-8">
-      <app-home></app-home>
-      <app-products></app-products>
-      <app-users></app-users>
+      <router-outlet></router-outlet>
+      
     </div>
   </div>
 

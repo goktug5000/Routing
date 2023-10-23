@@ -6,6 +6,18 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { FormsModule } from '@angular/forms';
+
+const appRoutes:Routes=[
+  {path:'', component:HomeComponent},//localhost
+  {path:'home', component:HomeComponent},
+  {path:'products', component:ProductsComponent},
+  {path:'users', component:UsersComponent},
+  {path:'**', component:NotfoundComponent},
+]
+
 
 @NgModule({
   declarations: [
@@ -13,10 +25,13 @@ import { CategoriesComponent } from './categories/categories.component';
     HomeComponent,
     ProductsComponent,
     UsersComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    NotfoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
