@@ -51,7 +51,7 @@ export class ProductComponent implements OnInit{
   goNextProduct2(tryProduct:any){
     if(tryProduct!=null){
       console.log("eleman bulundu "+tryProduct.id);
-      this.route.paramMap.subscribe(dnm=>{this.router.navigate(['/products/'+String(tryProduct.id)]);});
+      this.router.navigate(['/products/'+String(tryProduct.id)]);
       return;
     }
     console.log("eleman yok ");
