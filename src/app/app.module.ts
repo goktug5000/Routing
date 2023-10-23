@@ -9,11 +9,13 @@ import { CategoriesComponent } from './categories/categories.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { FormsModule } from '@angular/forms';
+import { ProductComponent } from './products/product/product.component';
 
 const appRoutes:Routes=[
   {path:'', component:HomeComponent},//localhost
   {path:'home', component:HomeComponent},
   {path:'products', component:ProductsComponent},
+  {path:'products/:id', component:ProductComponent},
   {path:'users', component:UsersComponent},
   {path:'**', component:NotfoundComponent},
 ]
@@ -26,7 +28,8 @@ const appRoutes:Routes=[
     ProductsComponent,
     UsersComponent,
     CategoriesComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
