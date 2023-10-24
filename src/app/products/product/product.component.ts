@@ -11,7 +11,7 @@ export class ProductComponent implements OnInit{
 
 
   selectedProduct:any;
-
+  id:number=0;
 
   constructor(private route:ActivatedRoute, private router:Router){
 
@@ -28,8 +28,8 @@ export class ProductComponent implements OnInit{
     .subscribe(dnm=>
       {
       console.log("adres değişti");
-      let id = Number(dnm.get('id'));
-      this.selectedProduct=products.find(ii=>ii.id===id);
+      this.id = Number(dnm.get('id'));
+      this.selectedProduct=products.find(ii=>ii.id===this.id);
       }
     );
 
@@ -37,13 +37,17 @@ export class ProductComponent implements OnInit{
 
 
   goNextProduct(nextt?:boolean){
-    let id:number=0;
+    //let id:number=0;
     let idModif:number=1;
 
     if(nextt==false){
       idModif=-1;
     }
     
+
+    let tryProduct=products.find(ii=>ii.id===Number(this.id+idModif));
+    this.goNextProduct2(tryProduct);
+/*
     this.route.paramMap
     .subscribe(dnm=>//döngüden çıkana kadar 1590157109 kez içindekiler çalışıyor
       {
@@ -51,7 +55,7 @@ export class ProductComponent implements OnInit{
       let tryProduct=products.find(ii=>ii.id===Number(id+idModif));
       console.log("dnm");
       this.goNextProduct2(tryProduct);
-      });
+      });*/
   }
 
   goNextProduct2(tryProduct:any){
